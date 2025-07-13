@@ -1,8 +1,8 @@
 const { fetchWebApi } = require('../utils');
 
-const getTopTracks = async (count=10) => {
+const getTopTracks = async (count=10, token) => {
     try {
-        const res = await fetchWebApi(`me/top/tracks?limit=${count}`, 'GET');
+        const res = await fetchWebApi(`me/top/tracks?limit=${count}`, 'GET', token);
         // console.log("items: ", res.items[0]);
         // if (res &&  res.items) {
         //     let data =  res.items.map((item) => {

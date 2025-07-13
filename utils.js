@@ -10,10 +10,10 @@ require('dotenv').config();
 // });
 
 const token = process.env.SPOTIFY_TOKEN;
-async function fetchWebApi(endpoint, method, body) {
+async function fetchWebApi(endpoint, method, req_token, body) {
   const res = await fetch(`https://api.spotify.com/v1/${endpoint}`, {
     headers: {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${req_token}`,
     },
     method,
     body:JSON.stringify(body)

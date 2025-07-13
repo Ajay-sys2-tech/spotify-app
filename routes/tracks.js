@@ -6,10 +6,10 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     const { count='10' } = req.query;
-    // const token = req.authorization.split(" ")[1];
+    const token = req.authorization.split(" ")[1];
     // console.log(token);
     try {
-        const data = await getTopTracks(parseInt(count, 10));
+        const data = await getTopTracks(parseInt(count, 10), token);
         // if (!data || data.length === 0) {
         //     return res.status(404).json({ error: 'No top tracks found' });
         // }
