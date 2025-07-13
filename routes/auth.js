@@ -29,7 +29,7 @@ router.get('/login', function(req, res) {
       response_type: 'code',
       client_id: client_id,
       scope: scope,
-    //   redirect_uri: redirect_uri,
+      redirect_uri: redirect_uri,
       state: state
     }));
 });
@@ -67,7 +67,7 @@ router.get('/callback', async function(req, res) {
 
   const body = new URLSearchParams({
     code: code,
-    // redirect_uri: redirect_uri,
+    redirect_uri: redirect_uri,
     grant_type: 'authorization_code'
   });
 
