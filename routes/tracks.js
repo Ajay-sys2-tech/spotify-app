@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     const { count='10' } = req.query;
-    const token = req.authorization.split(" ")[1];
+    const token = req.headers['authorization'].split(" ")[1];
     // console.log(token);
     try {
         const data = await getTopTracks(parseInt(count, 10), token);
