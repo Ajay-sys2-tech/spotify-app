@@ -5,7 +5,7 @@ const getTopTracks = async (count=10) => {
         const res = await fetchWebApi(`me/top/tracks?limit=${count}`, 'GET');
         // console.log(res);
         if (res &&  res.items) {
-            return res.items.map((item) => {
+            let data =  res.items.map((item) => {
                 return {
                     artists: item.artists,
                     type: item.type,
@@ -20,9 +20,11 @@ const getTopTracks = async (count=10) => {
                     uri: item.uri,
                 }
             })
+            console.log(data);
+            return data;
         }
 
-        return [];
+        else return [];
     } catch (error) {
         throw error;
     }
