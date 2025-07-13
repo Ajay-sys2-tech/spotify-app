@@ -22,7 +22,7 @@ function generateRandomString(length) {
 router.get('/login', function(req, res) {
 
   var state = generateRandomString(16);
-  var scope = 'user-read-private user-read-email user-follow-read';
+  var scope = 'user-read-private user-read-email user-follow-read user-read-currently-playing, user-top-read';
 
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
